@@ -1,4 +1,4 @@
-# sx_casino-peds
+# smokey_casino-peds
 Simple peds spawning resource.
 
 # ReadMe
