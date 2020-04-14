@@ -173,10 +173,13 @@ Citizen.CreateThread(function()
                     -- scenario
                     TaskStartScenarioInPlace(ped, v.anim, 0, true)
                 else
-                    -- animacja
-                    SMX.Streaming.RequestAnimDict(v.lib, function()
-                        TaskPlayAnim(ped, v.lib, v.anim, 8.0, 0.0, -1, 1, 0, 0, 0, 0)
-                    end)
+                    -- anim
+                    RequestAnimDict(v.lib)
+                    while not HasAnimDictLoaded(v.lib) do
+                        RequestAnimDict(v.lib)
+                        Citizen.Wait(10)
+                    end
+                    TaskPlayAnim(ped, v.lib, v.anim, 8.0, 0.0, -1, 1, 0, 0, 0, 0)
                 end
             end
         end
